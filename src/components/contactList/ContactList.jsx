@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { ListOfContact, ContactItem } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsSlice';
 import { selectVisibleContact, selectLoading } from 'redux/selectors/selectors';
 import { UpdateForm } from 'components/updateForm/UpdateForm';
-import { fetchContacts } from 'redux/contacts/contactsSlice';
+
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
@@ -14,9 +14,6 @@ export const ContactsList = () => {
   const contacts = useSelector(selectVisibleContact);
   const loading = useSelector(selectLoading);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [data, dispatch]);
 
   return (
     <ListOfContact>
